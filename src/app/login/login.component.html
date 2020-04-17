@@ -1,0 +1,44 @@
+
+
+<nz-content>
+  <div class="background-opacity">
+  <nz-row nzType="flex" nzJustify="center">
+    <div nz-col nzSpan="6" nzXs="11" nzMd="9" nzLg="7" class="login-panel">
+      <h1 class="login-title">Sign In </h1>
+      <div style="margin-top: 1rem;">
+          <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="doLogin()">
+            <nz-form-item>
+              <nz-form-control>
+                <nz-input-group nzPrefixIcon="anticon anticon-user" nzSize="large">
+                  <input type="text" nz-input formControlName="userName" placeholder="Username">
+                </nz-input-group>
+                <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">
+                  Please input
+                  your username!
+                </nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <nz-input-group nzPrefixIcon="anticon anticon-lock" nzSize="large">
+                  <input type="password" nz-input formControlName="password" placeholder="Password">
+                </nz-input-group>
+                <nz-form-explain *ngIf="validateForm.get('password').dirty && validateForm.get('password').errors">
+                  Please input
+                  your Password!
+                </nz-form-explain>
+              </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+              <nz-form-control>
+                <button nz-button nzSize="large" class="login-form-button" [nzType]="'primary'" [disabled]="!validateForm.valid">Submit
+                </button>
+              </nz-form-control>
+            </nz-form-item>
+          </form>
+      </div>
+    </div>
+
+  </nz-row>
+  </div>
+</nz-content>
